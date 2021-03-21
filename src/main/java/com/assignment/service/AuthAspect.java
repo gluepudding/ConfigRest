@@ -1,7 +1,7 @@
 package com.assignment.service;
 
-import com.assignment.annotation.Auth;
-import com.assignment.exception.AuthException;
+import com.assignment.common.annotation.Auth;
+import com.assignment.common.exception.AuthException;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

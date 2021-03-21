@@ -1,7 +1,7 @@
 package com.assignment.service.impl;
 
 import com.assignment.service.AuthService;
-import com.assignment.utils.AuthEnum;
+import com.assignment.common.bean.AuthEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

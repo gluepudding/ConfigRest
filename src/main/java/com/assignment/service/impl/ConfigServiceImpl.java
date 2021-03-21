@@ -1,8 +1,8 @@
 package com.assignment.service.impl;
 
-import com.assignment.exception.InvalidRequestException;
-import com.assignment.exception.NoConfException;
-import com.assignment.exception.NoDataException;
+import com.assignment.common.exception.InvalidRequestException;
+import com.assignment.common.exception.NoConfException;
+import com.assignment.common.exception.NoDataException;
 import com.assignment.model.entity.ConfigData;
 import com.assignment.repository.ConfigDataRepository;
 import com.assignment.service.ConfigService;

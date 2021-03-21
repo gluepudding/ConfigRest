@@ -3,11 +3,11 @@ package com.assignment.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.assignment.annotation.Auth;
+import com.assignment.common.annotation.Auth;
 import com.assignment.model.entity.ConfigData;
-import com.assignment.utils.AuthEnum;
-import com.assignment.utils.ResponseMsg;
-import com.assignment.utils.StatusEnum;
+import com.assignment.common.bean.AuthEnum;
+import com.assignment.common.bean.ResponseMsg;
+import com.assignment.common.bean.StatusEnum;
 import com.assignment.service.ConfigService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.assignment.utils.ConfigRestUtil.buildJsonArray;
-import static com.assignment.utils.ConfigRestUtil.convertToConfigResp;
+import static com.assignment.common.utils.ConfigRestUtil.buildJsonArray;
+import static com.assignment.common.utils.ConfigRestUtil.convertToConfigResp;
 
 @Slf4j
 @RestController
