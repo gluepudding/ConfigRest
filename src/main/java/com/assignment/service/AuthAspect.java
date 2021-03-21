@@ -18,10 +18,10 @@ public class AuthAspect {
     @Autowired
     AuthService authService;
 
-    @Pointcut(value = "@annotation(com.assignment.annotation.Auth)")
-    public void pointcut() {}
+    @Pointcut("@annotation(auth)")
+    public void checkAuth(Auth auth) {}
 
-    @Around("pointcut() && @annotation(auth)")
+    @Around("checkAuth(auth)")
     public  Object interceptor(ProceedingJoinPoint proceedingJoinPoint, Auth auth) throws Throwable {
 
         if (authService.authentication("").equals(auth.role())){
