@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration status="OFF">
+   <properties>
+       <Property name="baseDir">C:\Users\some\Documents</Property>
+       <Property name="log_pattern">%-d{yyyy-MM-dd HH:mm:ss.SSS} [%t:%r] [%F:%L] - [%p] %m%n"</Property>
+       <Property name="file_name">ConfigRest.log</Property>
+       <Property name="error_file_name">ConfigRest.log</Property>
+       <Property name="rolling_file_name">ConfigRest-%d{yyyy-MM-dd}.log.%i</Property>
+       <Property name="rolling_error_file_name">ConfigRest-error-%d{yyyy-MM-dd}.log.%i</Property>
+       <Property name="every_file_size">10MB</Property>
+   </properties>
+
+    <appenders>
+        <Console name="console"  target="SYSTEM_OUT">
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY" />
+            <PatternLayout pattern="${log_pattern}"/>
+        </Console>
+
+        <RollingFile name="infoFile" fileName="${baseDir}${file_name}" filePattern="${baseDir}${rolling_file_name}">
+            <PatternLayout pattern="${log_pattern}"/>
+            <Filters>
+                <ThresholdFilter level="INFO" onMatch="ACCEPT"/>
+            </Filters>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="${every_file_size}"/>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+
+        <RollingFile name="errorFile" fileName="${baseDir}${error_file_name}" filePattern="${baseDir}${rolling_error_file_name}">
+            <PatternLayout pattern="${log_pattern}"/>
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="ACCEPT"/>
+            </Filters>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="${every_file_size}"/>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+    </appenders>
+
+    <loggers>
+        <Root level="all">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="infoFile" />
+            <AppenderRef ref="errorFile" />
+        </Root>
+    </loggers>
+</configuration>
